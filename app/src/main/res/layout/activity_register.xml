@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:background="@mipmap/loginback">
+
+    <TextView
+        android:id="@+id/tv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/mosalas"
+        android:text="دیدبین!"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_logo"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/comp"
+        android:text="ساخت حساب کاربری"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textSize="17sp"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="342dp" />
+
+
+    <EditText
+        android:id="@+id/et_first_name"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_subtitle"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif"
+        android:hint="نام"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="350dp" />
+
+    <EditText
+        android:id="@+id/et_last_name"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_subtitle"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toStartOf="@id/et_first_name"
+        android:fontFamily="sans-serif"
+        android:hint="نام خانوادگی"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="350dp" />
+
+    <EditText
+        android:id="@+id/et_phone_number"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_first_name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif"
+        android:gravity="end"
+        android:hint="شماره تلفن همراه"
+        android:inputType="text|phone"
+        android:padding="15dp"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="338dp" />
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_last_name"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toStartOf="@id/et_phone_number"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:hint="ایمیل"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="350dp" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_phone_number"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif"
+        android:gravity="end"
+        android:hint="رمز عبور"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="338dp" />
+
+    <EditText
+        android:id="@+id/et_password2"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_email"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toStartOf="@id/et_password"
+        android:fontFamily="sans-serif"
+        android:gravity="end"
+        android:hint="رمز عبور خود را تکرار کنید"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="338dp" />
+
+    <CheckBox
+        android:id="@+id/et_terms_and_conditions"
+        android:layout_width="133dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_password"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:checked="false"
+        android:layoutDirection="rtl"
+        android:text="موافقت نامه" />
+
+    <Button
+        android:id="@+id/et_register_button"
+        android:layout_width="761dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_password2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="20dp"
+        android:layout_toStartOf="@+id/et_terms_and_conditions"
+        android:fontFamily="@font/comp"
+        android:text="ساخت حساب"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/btn_goBack"
+        android:layout_width="76dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/et_register_button"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/ic_action_back" />
+
+
+</RelativeLayout>
