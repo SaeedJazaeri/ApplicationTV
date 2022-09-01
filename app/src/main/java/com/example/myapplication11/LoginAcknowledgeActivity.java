@@ -32,8 +32,6 @@ public class LoginAcknowledgeActivity extends AppCompatActivity {
         loginAckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Log.i("ALI", tv_username.getText().toString());
-//                Log.i("ALI", tv_password.getText().toString());
                 AckCallAPILoginAsyncTask task = new AckCallAPILoginAsyncTask(
                         username,
                         password,
@@ -74,7 +72,7 @@ public class LoginAcknowledgeActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            Log.i("ALI", result);
+            Log.d("SAEEEEED", result);
             if(isAck) {
                 ackActivity();
             } else {

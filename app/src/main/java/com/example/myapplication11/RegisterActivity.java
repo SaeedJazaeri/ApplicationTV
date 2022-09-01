@@ -116,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void unable2Ack() {
-        Toast.makeText(this, "خطا! از درست بودن شماره تلفن، ایمیل و یکسان بودن رمزعبور و تکرار آن مطمئن شوید.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "در ثبتنام شما مشکلی پیش اومده! لطفا بعدا مجددا تلاش کنید.", Toast.LENGTH_SHORT).show();
     }
 
 

@@ -23,8 +23,8 @@ class CallAPIRegisterAsyncTask extends AsyncTask<String, Integer, String> {
                      password, passwordRepeat;
 
     CallAPIRegisterAsyncTask(String firstName, String lastName,
-                                    String phoneNumber, String email,
-                                    String password, String passwordRepeat) {
+                             String phoneNumber, String email,
+                             String password, String passwordRepeat) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -50,9 +50,8 @@ class CallAPIRegisterAsyncTask extends AsyncTask<String, Integer, String> {
 
         HttpURLConnection connection = null;
         try {
-            URL url = new URL("https://didbin.ir/api/register");
+            URL url = new URL("https://didbin.ir/api/register/");
             connection = (HttpURLConnection) url.openConnection();
-
             connection.setDoInput(true);
             connection.setDoOutput(true);
 

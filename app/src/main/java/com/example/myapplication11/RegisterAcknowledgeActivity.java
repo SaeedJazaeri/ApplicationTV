@@ -23,6 +23,8 @@ public class RegisterAcknowledgeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register_acknowledge);
         java.text.DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
 
+        initView();
+
         String firstName = getIntent().getStringExtra("firstName");
         String lastName = getIntent().getStringExtra("lastName");
         String phoneNumber = getIntent().getStringExtra("phoneNumber");
@@ -47,7 +49,6 @@ public class RegisterAcknowledgeActivity extends AppCompatActivity {
         });
 
 
-        initView();
 
 
 
@@ -60,11 +61,11 @@ public class RegisterAcknowledgeActivity extends AppCompatActivity {
     }
 
     private void ackActivity() {
-        Toast.makeText(this, "ورود شما با موفقیت انجام شد", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "حساب کاربری شما با موفقیت ساخته شد.", Toast.LENGTH_SHORT).show();
     }
 
     private void unable2Ack() {
-        Toast.makeText(this, "کد صحت سنجی صحیح نمی‌باشد!!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "ساخت حساب کاربری برای شما با مشکل مواجه شد.", Toast.LENGTH_SHORT).show();
     }
 
     private class AckCallAPIRegisterAsyncTask extends CallAPIRegisterAsyncTask {

@@ -71,9 +71,10 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            Log.i("ALI", result);
+            Log.i("SAEEEED", result);
             if(isAck) {
                 ackActivity();
+
             } else {
                 unable2Ack();
             }

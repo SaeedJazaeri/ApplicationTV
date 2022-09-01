@@ -37,7 +37,7 @@ class CallAPILoginAsyncTask extends AsyncTask<String, Integer, String>{
         HttpURLConnection connection = null;
 
         try {
-            URL url = new URL("https://didbin.ir/api/login");
+            URL url = new URL("https://didbin.ir/api/login/");
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.setDoOutput(true);
@@ -81,7 +81,7 @@ class CallAPILoginAsyncTask extends AsyncTask<String, Integer, String>{
                 result = stringBuilder.toString();
             } else {
                 result = connection.getResponseMessage();
-                Log.i("ALI", "Im hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+                Log.d("ALI", "Im hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
 
             }
 
