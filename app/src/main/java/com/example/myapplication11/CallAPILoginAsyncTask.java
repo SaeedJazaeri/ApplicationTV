@@ -42,6 +42,8 @@ class CallAPILoginAsyncTask extends AsyncTask<String, Integer, String>{
             connection.setDoInput(true);
             connection.setDoOutput(true);
 
+
+
             connection.setInstanceFollowRedirects(false);
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");

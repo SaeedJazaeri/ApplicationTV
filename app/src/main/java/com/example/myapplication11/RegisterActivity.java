@@ -39,7 +39,9 @@ public class RegisterActivity extends AppCompatActivity {
                                 phoneNumberRegister.getText().toString(),
                                 emailRegister.getText().toString(),
                                 passwordRegister.getText().toString(),
-                                repeatPasswordRegister.getText().toString());
+                                repeatPasswordRegister.getText().toString(),
+                                emailRegister.getText().toString()
+                                );
                         task.execute();
                     }
                 }
@@ -110,6 +112,7 @@ public class RegisterActivity extends AppCompatActivity {
         intent.putExtra("email", emailRegister.getText().toString());
         intent.putExtra("password", passwordRegister.getText().toString());
         intent.putExtra("passwordRepeat", repeatPasswordRegister.getText().toString());
+        intent.putExtra("username", emailRegister.getText().toString());
 
         startActivity(intent);
         finish();
@@ -124,8 +127,9 @@ public class RegisterActivity extends AppCompatActivity {
 
         MainCallAPIRegisterAsyncTask(String firstName, String lastName,
                                      String phoneNumber, String email,
-                                     String password, String passwordRepeat) {
-            super(firstName, lastName, phoneNumber, email, password, passwordRepeat);
+                                     String password, String passwordRepeat,
+                                     String username) {
+            super(firstName, lastName, phoneNumber, email, password, passwordRepeat, username);
         }
 
         @Override

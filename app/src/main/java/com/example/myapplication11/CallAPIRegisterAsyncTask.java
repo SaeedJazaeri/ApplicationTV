@@ -20,11 +20,13 @@ class CallAPIRegisterAsyncTask extends AsyncTask<String, Integer, String> {
     boolean isAck = false;
     protected String firstName, lastName,
                      phoneNumber, email,
-                     password, passwordRepeat;
+                     password, passwordRepeat,
+                     username;
 
     CallAPIRegisterAsyncTask(String firstName, String lastName,
                              String phoneNumber, String email,
-                             String password, String passwordRepeat) {
+                             String password, String passwordRepeat,
+                             String username) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -32,10 +34,11 @@ class CallAPIRegisterAsyncTask extends AsyncTask<String, Integer, String> {
         this.email = email;
         this.password = password;
         this.passwordRepeat = passwordRepeat;
+        this.username = username;
     }
 
     protected void setVariables(JSONObject jsonRequest) throws JSONException {
-        jsonRequest.put("username", email);
+        jsonRequest.put("username", username);
         jsonRequest.put("password", password);
         jsonRequest.put("password2", passwordRepeat);
         jsonRequest.put("email", email);
@@ -55,6 +58,8 @@ class CallAPIRegisterAsyncTask extends AsyncTask<String, Integer, String> {
             connection.setDoInput(true);
             connection.setDoOutput(true);
 
+
+
             connection.setInstanceFollowRedirects(false);
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
@@ -64,6 +69,8 @@ class CallAPIRegisterAsyncTask extends AsyncTask<String, Integer, String> {
             DataOutputStream writeDataOutputStream = new DataOutputStream(connection.getOutputStream());
             JSONObject jsonRequest = new JSONObject();
             setVariables(jsonRequest);
+
+
 
             writeDataOutputStream.writeBytes(jsonRequest.toString());
             writeDataOutputStream.flush();
@@ -94,7 +101,7 @@ class CallAPIRegisterAsyncTask extends AsyncTask<String, Integer, String> {
                 result = stringBuilder.toString();
             } else {
                 result = connection.getResponseMessage();
-                Log.i("ALI", "Im hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+                Log.i("ALI", "Im hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeee    " + connection.getResponseMessage());
 
             }
         } catch (IOException e) {

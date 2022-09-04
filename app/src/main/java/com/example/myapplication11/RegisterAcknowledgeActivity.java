@@ -25,25 +25,31 @@ public class RegisterAcknowledgeActivity extends AppCompatActivity {
 
         initView();
 
+        Log.i("CHECK OPT_NUMBER", registerAckOptNumber.getText().toString());
+
         String firstName = getIntent().getStringExtra("firstName");
         String lastName = getIntent().getStringExtra("lastName");
         String phoneNumber = getIntent().getStringExtra("phoneNumber");
         String email = getIntent().getStringExtra("email");
         String password = getIntent().getStringExtra("password");
         String passwordRepeat = getIntent().getStringExtra("passwordRepeat");
-        String username = getIntent().getStringExtra("email");
+        String username = getIntent().getStringExtra("username");
 
         registerAckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RegisterAcknowledgeActivity.AckCallAPIRegisterAsyncTask task = new RegisterAcknowledgeActivity.AckCallAPIRegisterAsyncTask(
+                AckCallAPIRegisterAsyncTask task = new AckCallAPIRegisterAsyncTask(
                         firstName,
                         lastName,
                         email,
                         phoneNumber,
                         password,
                         passwordRepeat,
+                        username,
                         registerAckOptNumber.getText().toString());
+
+                Log.i("OPT CHECKING: ", registerAckOptNumber.getText().toString());
+
                 task.execute();
             }
         });
@@ -56,7 +62,7 @@ public class RegisterAcknowledgeActivity extends AppCompatActivity {
     }
 
     private void initView(){
-        registerAckOptNumber = findViewById(R.id.tv_opt_number);
+        registerAckOptNumber = findViewById(R.id.register_tv_opt_number);
         registerAckBtn = findViewById(R.id.btn_register);
     }
 
@@ -74,16 +80,17 @@ public class RegisterAcknowledgeActivity extends AppCompatActivity {
         AckCallAPIRegisterAsyncTask(String firstName, String lastName,
                                     String email, String phoneNumber,
                                     String password, String passwordRepeat,
-                                    String opt_number) {
+                                    String username, String opt_number) {
             super(firstName, lastName,
                   email, phoneNumber,
-                  password, passwordRepeat);
+                  password, passwordRepeat,
+                  username);
             this.opt_number = opt_number;
         }
 
         @Override
         protected void setVariables(JSONObject jsonRequest) throws JSONException {
-            jsonRequest.put("username", email);
+            jsonRequest.put("username", username);
             jsonRequest.put("password", password);
             jsonRequest.put("password2", passwordRepeat);
             jsonRequest.put("email", email);
@@ -95,7 +102,7 @@ public class RegisterAcknowledgeActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            Log.i("ALI", result);
+            Log.i("ALIIIIIIIIIIIIIIIII", result);
             if(isAck) {
                 ackActivity();
             } else {
